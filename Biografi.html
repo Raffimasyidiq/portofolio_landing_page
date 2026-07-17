@@ -1,0 +1,628 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portofolio</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap"
+      rel="stylesheet"
+    />
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css"
+    />
+
+    <style>
+      /* Hanya Untuk Header & Content */
+
+      .header img {
+        width: 100%;
+        margin-top: 60px;
+        object-fit: cover;
+        border-radius: 10px;
+        animation: fadeUp 1s ease;
+      }
+
+      .info-item {
+        display: flex;
+        align-items: flex-start;
+        margin-top: 40px;
+        margin-bottom: 40px;
+      }
+
+      .info-item .ttl {
+        font-size: 32px;
+        font-weight: 400;
+        color: #b0e4cc;
+        width: 30%;
+        margin: 0;
+        letter-spacing: -0.02em;
+      }
+
+      .info-item .desc {
+        font-size: 24px;
+        font-weight: 200;
+        color: #b0e4cc;
+        width: 70%;
+        line-height: 1.5;
+        margin: 0;
+        letter-spacing: -0.01em;
+      }
+
+      @media (max-width: 768px) {
+        .info-item {
+          flex-direction: column;
+          gap: 10px;
+        }
+
+        .info-item .ttl,
+        .info-item .desc {
+          width: 100%;
+        }
+      }
+
+      hr {
+        border: 0;
+        border-top: 1px solid #408a71;
+        opacity: 0.3;
+        margin: 20px 0;
+      }
+
+      /*================ Learning Roadmap ================*/
+
+      .learning-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+        gap: 20px;
+      }
+
+      .learning-card {
+        background: #173328;
+        border: 1px solid #2b5b49;
+        border-radius: 12px;
+        padding: 22px;
+        transition: 0.3s ease;
+      }
+
+      .learning-card:hover {
+        transform: translateY(-8px);
+        border-color: #6fd3ab;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .learning-card .icon {
+        font-size: 40px;
+        margin-bottom: 15px;
+      }
+
+      .learning-card h3 {
+        color: #b0e4cc;
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .learning-card p {
+        color: #9cc8b5;
+        font-size: 16px;
+        line-height: 1.7;
+        margin-bottom: 20px;
+      }
+
+      .completed,
+      .learning,
+      .target {
+        display: inline-block;
+        padding: 8px 15px;
+        border-radius: 20px;
+        font-size: 14px;
+        font-weight: 500;
+      }
+
+      .completed {
+        background: rgba(16, 185, 129, 0.15);
+        color: #4ade80;
+      }
+
+      .learning {
+        background: rgba(245, 158, 11, 0.15);
+        color: #fbbf24;
+      }
+
+      .target {
+        background: rgba(59, 130, 246, 0.15);
+        color: #60a5fa;
+      }
+
+      /*================ Soft skills ================*/
+
+      .softskill-container {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 20px;
+        align-items: stretch;
+        margin-top: 10px;
+      }
+
+      .softskill-card {
+        background: #173328;
+        border: 1px solid #2b5b49;
+        border-radius: 12px;
+        padding: 22px;
+        transition: 0.3s ease;
+        display: flex;
+        flex-direction: column;
+        height: 100%;
+        box-sizing: border-box;
+      }
+
+      .softskill-card:hover {
+        transform: translateY(-8px);
+        border-color: #6fd3ab;
+        box-shadow: 0 15px 30px rgba(0, 0, 0, 0.2);
+      }
+
+      .soft-icon {
+        width: 60px;
+        height: 60px;
+        background: rgba(176, 228, 204, 0.08);
+        align-items: center;
+        justify-content: center;
+        display: flex;
+        margin-bottom: 18px;
+        border-radius: 15px;
+      }
+
+      .soft-icon i {
+        font-size: 26px;
+        color: #6fd3ab;
+      }
+
+      .softskill-card h3 {
+        color: #b0e4cc;
+        font-size: 22px;
+        margin-bottom: 15px;
+      }
+
+      .softskill-card p {
+        color: #9cc8b5;
+        font-size: 16px;
+        line-height: 1.7;
+      }
+
+      /*================ Personal Identity ================*/
+
+      .identity {
+        margin: 55px 0 70px;
+        animation: fadeUp 1.2s ease;
+      }
+
+      .identity h1 {
+        font-size: 48px;
+        color: #b0e4cc;
+        font-weight: 600;
+        margin-bottom: 8px;
+        letter-spacing: -0.03em;
+      }
+
+      .identity .role {
+        font-size: 22px;
+        color: #6fd3ab;
+        margin-bottom: 30px;
+        font-weight: 400;
+      }
+
+      .identity-info {
+        display: flex;
+        flex-wrap: wrap;
+        gap: 15px;
+      }
+
+      .identity-info .item {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        background: #173328;
+        border: 1px solid #2b5b49;
+        border-radius: 50px;
+        color: #9cc8b5;
+        transition: 0.3s;
+        text-decoration: 0;
+      }
+
+      .identity-info a {
+        display: flex;
+        align-items: center;
+        gap: 10px;
+        padding: 12px 20px;
+        border: 1px solid #2b5b49;
+        border-radius: 50px;
+        color: #9cc8b5;
+        transition: 0.3s;
+        text-decoration: 0;
+      }
+
+      .identity-info a:hover {
+        transform: translateY(-5px);
+        border-color: #6fd3ab;
+        background: #173328;
+      }
+
+      .identity-info i {
+        color: #6fd3ab;
+        font-size: 18px;
+      }
+
+      .identity-info span {
+        font-size: 15px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <!--======================= Navbar =======================-->
+      <nav class="navbar">
+        <ul>
+          <li><a href="Work.html">Portofolio</a></li>
+          <li><a href="Biografi.html" class="active">About Me</a></li>
+          <li><a href="Contact.html">Contact</a></li>
+          <li class="nama">
+            <a href="#"><a href="">Raffi Muhammad A</a></a>
+          </li>
+        </ul>
+      </nav>
+
+      <!--======================= Header =======================-->
+      <header class="header">
+        <img src="IMG\america3_2026.jpeg" alt="foto_rafi" />
+      </header>
+
+      <section class="identity">
+        <h1>Raffi Muhammad Asyidiq</h1>
+
+        <p class="role">Software Engineering Student</p>
+
+        <div class="identity-info">
+          <a href="https://maps.app.goo.gl/3PraMNiZ2Q6tggWP7" target="_blank">
+            <i class="fa-solid fa-location-dot"></i>
+            <span>Bekasi, Indonesia</span>
+          </a>
+
+          <a href="https://www.smktarunabangsa.sch.id/" target="_blank">
+            <i class="fa-solid fa-school"></i>
+            <span>SMK Taruna Bangsa</span>
+          </a>
+
+          <div class="item">
+            <i class="fa-solid fa-code"></i>
+            <span>Front-End Development</span>
+          </div>
+
+          <div class="item">
+            <i class="fa-brands fa-figma"></i>
+            <span>UI / UX Enthusiast</span>
+          </div>
+
+          <div class="item">
+            <i class="fa-solid fa-computer"></i>
+            <span>Available for Internship (PKL)</span>
+          </div>
+        </div>
+      </section>
+
+      <hr />
+
+      <!--======================= content =======================-->
+      <main class="content">
+        <div class="biografi">
+          <div class="info-item">
+            <p class="ttl">| Introduction</p>
+            <p class="desc">
+              Hi! Nama saya Raffi Muhammad Asyidiq, saya seorang siswa SMK
+              Taruna Bangsa jurusan Rekayasa Perangkat Lunak yang memiliki minat
+              tinggi untuk terus belajar dan berkembang di bidang teknologi &
+              kreatif.
+            </p>
+          </div>
+
+          <hr />
+
+          <div class="info-item">
+            <p class="ttl">| Pendidikan</p>
+            <p class="desc">
+              Saya menempuh pendidikan di
+              <a
+                href="https://www.smktarunabangsa.sch.id/"
+                class="link"
+                target="_blank"
+                >SMK Taruna Bangsa</a
+              >
+              Kota Bekasi (2025–Present) pada kompetensi keahlian Rekayasa
+              Perangkat Lunak.
+            </p>
+          </div>
+
+          <hr />
+
+          <div class="info-item">
+            <p class="ttl">| Skills</p>
+
+            <div class="desc">
+              <p style="margin-bottom: 30px">
+                <i class="fa-solid fa-code"></i> Front-end
+              </p>
+
+              <div class="learning-container">
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-brands fa-html5"></i>
+                  </div>
+                  <h3>HTML</h3>
+                  <p>
+                    Mempelajari struktur dasar website, semantic HTML, serta
+                    membangun halaman web yang terstruktur.
+                  </p>
+                  <p><i class="fa-regular fa-calendar"></i> Februari 2026</p>
+                  <span class="completed"> ✔ Completed </span>
+                </div>
+
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-brands fa-css3-alt"></i>
+                  </div>
+                  <h3>CSS</h3>
+                  <p>
+                    Membuat tampilan website menggunakan Flexbox, Grid,
+                    Responsive Design serta animasi.
+                  </p>
+                  <p><i class="fa-regular fa-calendar"></i> Mei 2026</p>
+                  <span class="completed"> ✔ Completed </span>
+                </div>
+
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-brands fa-js"></i>
+                  </div>
+                  <h3>JavaScript (Basic)</h3>
+                  <p>
+                    Mempelajari DOM, Event, dan membuat website menjadi
+                    interaktif.
+                  </p>
+                  <p><i class="fa-regular fa-calendar"></i> Juli 2026</p>
+                  <span class="completed"> ✔ Completed </span>
+                </div>
+
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-brands fa-figma"></i>
+                  </div>
+                  <h3>UI / UX Design</h3>
+                  <p>
+                    Target berikutnya adalah mempelajari Figma dan prinsip User
+                    Experience.
+                  </p>
+                  <span class="target">
+                    <i class="fa-solid fa-book"></i> Next Learning
+                  </span>
+                </div>
+              </div>
+
+              <p style="margin-bottom: 30px; margin-top: 30px">
+                <i class="fa-solid fa-database"></i> Database
+              </p>
+
+              <div class="learning-container">
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-solid fa-database"></i>
+                  </div>
+                  <h3>MySQL (Basic)</h3>
+                  <p><i class="fa-regular fa-calendar"></i> Maret 2026</p>
+                  <p>
+                    Membuat sistem database berisi data-data siswa dan
+                    mengelola-Nya agar tetap rapih dan mudah diatur.
+                  </p>
+                  <span class="completed"> ✔ Completed </span>
+                </div>
+              </div>
+
+              <p style="margin-bottom: 30px; margin-top: 30px">
+                <i class="fa-solid fa-screwdriver-wrench"></i> Tools
+              </p>
+
+              <div class="learning-container">
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-solid fa-file-code"></i>
+                  </div>
+                  <h3>Visual Studio Code</h3>
+                  <p>
+                    Terbiasa menggunakan Visual Studio Code untuk membantu
+                    pengembangan web saya.
+                  </p>
+                </div>
+
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-brands fa-github"></i>
+                  </div>
+                  <h3>Github</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Aspernatur, et?
+                  </p>
+                </div>
+
+                <div class="learning-card">
+                  <div class="icon">
+                    <i class="fa-brands fa-git"></i>
+                  </div>
+                  <h3>Git</h3>
+                  <p>
+                    Lorem ipsum dolor sit amet consectetur adipisicing elit.
+                    Perferendis, rerum!
+                  </p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <hr />
+
+          <div class="info-item">
+            <p class="ttl">| Soft Skills</p>
+
+            <div class="desc">
+              <p style="margin-bottom: 30px">
+                Saya percaya bahwa kemampuan teknis akan lebih maksimal jika
+                didukung dengan soft skills yang baik. Berikut beberapa
+                kemampuan yang terus saya kembangkan selama belajar di SMK
+                Taruna Bangsa.
+              </p>
+
+              <div class="softskill-container">
+                <div class="softskill-card">
+                  <div class="soft-icon">
+                    <i class="fa-regular fa-comments"></i>
+                  </div>
+
+                  <h3>Communication</h3>
+
+                  <p>
+                    Terbiasa menyampaikan ide di depan umum dengan memahami
+                    materi terlebih dahulu.
+                  </p>
+
+                  <hr />
+                  <p>"Sharing Ideas with Confidence."</p>
+                </div>
+
+                <div class="softskill-card">
+                  <div class="soft-icon">
+                    <i class="fa-solid fa-users"></i>
+                  </div>
+
+                  <h3>Teamwork</h3>
+
+                  <p>
+                    Terbiasa bekerja sama dalam project kelompok dan menghargai
+                    pendapat anggota tim.
+                  </p>
+
+                  <hr />
+                  <p>"Teamwork Makes the Dream Work"</p>
+                </div>
+
+                <div class="softskill-card">
+                  <div class="soft-icon">
+                    <i class="fa-solid fa-brain"></i>
+                  </div>
+
+                  <h3>Problem Solving</h3>
+
+                  <p>
+                    Terbiasa mencari solusi ketika menghadapi masalah saat
+                    belajar dengan mencoba berbagai pendekatan hingga menemukan
+                    penyelesaian yang tepat.
+                  </p>
+
+                  <hr />
+                  <p>"Every Problem Has a Solution."</p>
+                </div>
+
+                <div class="softskill-card">
+                  <div class="soft-icon">
+                    <i class="fa-solid fa-person-running"></i>
+                  </div>
+
+                  <h3>Adaptability</h3>
+
+                  <p>
+                    Mudah beradaptasi dengan lingkungan baru dan teknologi baru
+                    yang sedang di pelajari.
+                  </p>
+
+                  <hr />
+                  <p>"Adapt. Learn. Improve."</p>
+                </div>
+
+                <div class="softskill-card">
+                  <div class="soft-icon">
+                    <i class="fa-solid fa-handshake-angle"></i>
+                  </div>
+
+                  <h3>Responsibility</h3>
+
+                  <p>
+                    Berkomitmen untuk menyelesaikan tugas yang diberikan dengan
+                    sebaik mungkin sudah menjadi tanggung jawab saya.
+                  </p>
+
+                  <hr />
+                  <p>"Committed to Every Responsibility."</p>
+                </div>
+
+                <div class="softskill-card">
+                  <div class="soft-icon">
+                    <i class="fa-solid fa-business-time"></i>
+                  </div>
+
+                  <h3>Time Management</h3>
+
+                  <p>
+                    Terbiasa menyusun jadwal belajar maupun pengerjaan project
+                    agar setiap tugas dapat diselesaikan secara teratur dan
+                    tepat waktu.
+                  </p>
+
+                  <hr />
+                  <p>"Plan Today, Succeed Tomorrow."</p>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div></div>
+        </div>
+      </main>
+      <!--======================= Footer =======================-->
+      <footer class="footer">
+        <h3>Let's Build Something Great Together.</h3>
+
+        <p>
+          Terima kasih telah mengunjungi portfolio saya. Saya selalu terbuka
+          untuk belajar, berkolaborasi, dan berdiskusi mengenai dunia teknologi
+          maupun pengembangan web dan kreatif.
+        </p>
+
+        <div class="footer-social">
+          <a
+            href="https://mail.google.com/mail/?view=cm&fs=1&to=assyidiqraffimuhammad@gmail.com"
+            target="_blank"
+          >
+            <i class="fa-solid fa-envelope"></i>
+            Email
+          </a>
+
+          <a href="https://github.com/username" target="_blank">
+            <i class="fa-brands fa-github"></i>
+            GitHub
+          </a>
+
+          <a href="https://instagram.com/r4vvin_ch" target="_blank">
+            <i class="fa-brands fa-instagram"></i>
+            Instagram
+          </a>
+        </div>
+
+        <p class="copyright">
+          © 2026 Raffi Muhammad Asyidiq. Built with HTML & CSS.
+        </p>
+      </footer>
+    </div>
+  </body>
+</html>
